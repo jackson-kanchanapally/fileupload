@@ -4,21 +4,28 @@ module.exports = cds.service.impl(async function () {
   const { Stock } = this.entities;
 
   this.on("uploadData", async (req) => {
-    const jsonData = JSON.parse(req.data.jsonData);
+    try {
+      const jsonData = JSON.parse(req.data.jsonData);
+      const tx = cds.transaction(req);
+      const aInsertPromises = jsonData.map((oData) => {
+        return tx.run(
+          INSERT.into(Stock).entries({
+            name: oData.name || "",
+            exg: oData.exg || "",
+            price: oData.price || "",
+          })
+        );
+      });
+      await Promise.all(aInsertPromises);
 
-    const tx = cds.transaction(req);
-    const insertPromises = jsonData.map((data) => {
-      return tx.run(
-        INSERT.into(Stock).entries({
-          name: data.name || "",
-          exg: data.exg || "",
-          price: data.price || "",
-        })
-      );
-    });
-
-    await Promise.all(insertPromises);
-
-    return { message: "Data imported successfully!" };
+      await tx.commit();
+      return { message: "Data imported successfully" };
+    } catch (oError) {
+      if (tx) {
+        await tx.rollback();
+      }
+      console.error("Error uploading data: ", oError);
+      req.error(500, "Error importing data.");
+    }
   });
 });
