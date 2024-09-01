@@ -26,7 +26,7 @@ sap.ui.define(
             });
             var jsonString = JSON.stringify(formattedData);
             $.ajax({
-              url: "/odata/v4/weekendtask/uploadStockData",
+              url: "/odata/v4/Stocks/uploadStockData",
               method: "POST",
               contentType: "application/json",
               data: JSON.stringify({ jsonData: jsonString }),

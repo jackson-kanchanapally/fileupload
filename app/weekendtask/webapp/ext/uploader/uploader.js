@@ -9,7 +9,7 @@ sap.ui.define(
         var oDialog = oView.byId("dialog");
         if (!oDialog) {
           View.create({
-            viewName: "railway.view.Dialog",
+            viewName: "weekendtask.view.Dialog",
             type: sap.ui.core.mvc.ViewType.XML,
           }).then(function (oDialogView) {
             oView.addDependent(oDialogView);
