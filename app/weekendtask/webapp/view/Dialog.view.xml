@@ -1,0 +1,43 @@
+<mvc:View
+    controllerName="weekendtask.controller.Dialog"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m">
+    <Dialog
+        id="dialog"
+        title="Upload a file"
+        class="sapUiResponsivePadding"
+        contentHeight="80px">
+        <VBox
+            fitContainer="true"
+            alignItems="Center"
+            justifyContent="Center"
+            class="sapUiSmallMarginTopBottom">
+            <u:FileUploader
+                id="fileUploader"
+                fileType="xlsx,xls"
+                change=".onFileChange"
+                width="100%" />
+        </VBox>
+        <footer>
+            <Toolbar class="sapUiResponsivePadding"
+            >
+                <ToolbarSpacer />
+                <Button
+                    id="submitButton"
+                    text="Submit"
+                    icon="sap-icon://upload"
+                    press="onSubmit"
+                    enabled="false"
+                    type="Emphasized" />
+                <Button
+                    text="Cancel"
+                    type="Reject"
+                    press="onCancel" />
+                <Button
+                    icon="sap-icon://download"
+                    press="onDownload" />
+            </Toolbar>
+        </footer>
+    </Dialog>
+</mvc:View>

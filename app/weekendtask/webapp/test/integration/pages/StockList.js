@@ -9,8 +9,8 @@ sap.ui.define(['sap/fe/test/ListReport'], function(ListReport) {
     return new ListReport(
         {
             appId: 'weekendtask',
-            componentId: 'UploadedDataList',
-            contextPath: '/UploadedData'
+            componentId: 'StockList',
+            contextPath: '/Stock'
         },
         CustomPageDefinitions
     );

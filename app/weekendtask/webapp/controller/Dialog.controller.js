@@ -21,12 +21,13 @@ sap.ui.define(
             var formattedData = jsonData.slice(1).map(function (row) {
               return {
                 name: row[0] || "",
-                price: row[1] || "",
+                exg: row[1] || "",
+                price: row[2] || "",
               };
             });
             var jsonString = JSON.stringify(formattedData);
             $.ajax({
-              url: "/odata/v4/Stocks/uploadStockData",
+              url: "/odata/v4/Stocks/uploadData",
               method: "POST",
               contentType: "application/json",
               data: JSON.stringify({ jsonData: jsonString }),
@@ -66,7 +67,7 @@ sap.ui.define(
       },
       onDownloadTemplatePress: function () {
         var wb = XLSX.utils.book_new();
-        var wsData = [["name", "exg", "price"]];
+        var wsData = [["Name", "Exchange", "Price"]];
         var ws = XLSX.utils.aoa_to_sheet(wsData);
         XLSX.utils.book_append_sheet(wb, ws, "Template");
         var wbout = XLSX.write(wb, { bookType: "xlsx", type: "binary" });
@@ -82,7 +83,7 @@ sap.ui.define(
         var url = URL.createObjectURL(blob);
         var a = document.createElement("a");
         a.href = url;
-        a.download = "data.xlsx";
+        a.download = "railway_template.xlsx";
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);

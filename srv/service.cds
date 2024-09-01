@@ -1,9 +1,9 @@
-using { com.my.upload as stockSchema } from '../db/schema';
+using {com.sat.task as s} from '../db/schema';
 
 service Stocks {
-    entity Stock as projection on stockSchema.Stock;
+    entity Stock as projection on s.Stock;
     
-  action uploadStockData(jsonData: String);
+  action uploadData(jsonData: String);
 }
 annotate Stocks.Stock with  @odata.draft.enabled ;
 annotate Stocks.Stock with @(

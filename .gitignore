@@ -1,4 +1,4 @@
-# CAP fileTask
+# CAP task
 _out
 *.db
 *.sqlite

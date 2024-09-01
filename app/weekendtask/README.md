@@ -1,13 +1,13 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Fri Aug 30 2024 15:30:49 GMT+0530 (India Standard Time)|
+|**Generation Date and Time**<br>Sun Sep 01 2024 14:09:53 GMT+0530 (India Standard Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.14.2|
 |**Generation Platform**<br>Visual Studio Code|
 |**Template Used**<br>List Report Page V4|
 |**Service Type**<br>Local Cap|
-|**Service URL**<br>http://localhost:4004/odata/v4/upload/|
+|**Service URL**<br>http://localhost:4004/odata/v4/stocks/|
 |**Module Name**<br>weekendtask|
 |**Application Title**<br>App Title|
 |**Namespace**<br>|
@@ -16,7 +16,7 @@
 |**Enable Code Assist Libraries**<br>False|
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
-|**Main Entity**<br>UploadedData|
+|**Main Entity**<br>Stock|
 
 ## weekendtask
 

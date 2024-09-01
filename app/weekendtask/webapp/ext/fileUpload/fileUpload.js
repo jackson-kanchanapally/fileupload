@@ -17,7 +17,7 @@ sap.ui.define(
             if (oDialog) {
               oDialog.open();
             } else {
-              console.error("Dialog not found in the view!");
+              console.error("Error");
             }
           });
         } else {

@@ -2,10 +2,10 @@ sap.ui.require(
     [
         'sap/fe/test/JourneyRunner',
         'weekendtask/test/integration/FirstJourney',
-		'weekendtask/test/integration/pages/UploadedDataList',
-		'weekendtask/test/integration/pages/UploadedDataObjectPage'
+		'weekendtask/test/integration/pages/StockList',
+		'weekendtask/test/integration/pages/StockObjectPage'
     ],
-    function(JourneyRunner, opaJourney, UploadedDataList, UploadedDataObjectPage) {
+    function(JourneyRunner, opaJourney, StockList, StockObjectPage) {
         'use strict';
         var JourneyRunner = new JourneyRunner({
             // start index.html in web folder
@@ -16,8 +16,8 @@ sap.ui.require(
         JourneyRunner.run(
             {
                 pages: { 
-					onTheUploadedDataList: UploadedDataList,
-					onTheUploadedDataObjectPage: UploadedDataObjectPage
+					onTheStockList: StockList,
+					onTheStockObjectPage: StockObjectPage
                 }
             },
             opaJourney.run

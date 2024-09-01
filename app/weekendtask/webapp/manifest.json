@@ -13,11 +13,11 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.14.2",
-      "toolsId": "1e22ceb3-4811-4ee5-9475-f033c5387f6f"
+      "toolsId": "7e2fadd0-cfc8-4b74-a559-d07293eba193"
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v4/Stocks/",
+        "uri": "/odata/v4/stocks/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -86,29 +86,28 @@
       "routes": [
         {
           "pattern": ":?query:",
-          "name": "UploadedDataList",
-          "target": "UploadedDataList"
+          "name": "StockList",
+          "target": "StockList"
         },
         {
-          "pattern": "UploadedData({key}):?query:",
-          "name": "UploadedDataObjectPage",
-          "target": "UploadedDataObjectPage"
+          "pattern": "Stock({key}):?query:",
+          "name": "StockObjectPage",
+          "target": "StockObjectPage"
         }
       ],
       "targets": {
-        "UploadedDataList": {
+        "StockList": {
           "type": "Component",
-          "id": "UploadedDataList",
+          "id": "StockList",
           "name": "sap.fe.templates.ListReport",
           "options": {
             "settings": {
-              "contextPath": "/UploadedData",
-              "initialLoad": true,
+              "contextPath": "/Stock",
               "variantManagement": "Page",
               "navigation": {
-                "UploadedData": {
+                "Stock": {
                   "detail": {
-                    "route": "UploadedDataObjectPage"
+                    "route": "StockObjectPage"
                   }
                 }
               },
@@ -118,12 +117,12 @@
                     "type": "ResponsiveTable"
                   },
                   "actions": {
-                    "uploader": {
-                      "press": "weekendtask.ext.uploader.uploader.fileUpload",
+                    "fileUpload": {
+                      "press": "weekendtask.ext.fileUpload.fileUpload.fileUpload",
                       "visible": true,
                       "enabled": true,
                       "requiresSelection": false,
-                      "text": "Upload File"
+                      "text": "Upload"
                     }
                   }
                 }
@@ -131,14 +130,14 @@
             }
           }
         },
-        "UploadedDataObjectPage": {
+        "StockObjectPage": {
           "type": "Component",
-          "id": "UploadedDataObjectPage",
+          "id": "StockObjectPage",
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/UploadedData"
+              "contextPath": "/Stock"
             }
           }
         }
